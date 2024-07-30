@@ -33,8 +33,13 @@ class Sela
 
     private function getSelaDomain()
     {
-        $host = $_SERVER['HTTP_HOST'];
-        return (substr($host, 0, 4) === "www.") ? substr($host, 4) : $host;
+        if (isset($_SERVER['HTTP_HOST'])) {
+            $host = $_SERVER['HTTP_HOST'];
+            return (substr($host, 0, 4) === "www.") ? substr($host, 4) : $host;
+        }
+
+        // Gunakan environment variable atau konfigurasi jika HTTP_HOST tidak tersedia
+        return env('SELA_DOMAIN', 'localhost');
     }
 
     private function getBearerToken()
