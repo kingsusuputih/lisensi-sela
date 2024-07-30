@@ -12,7 +12,7 @@ class Sela
     private $bearer_token;
 
     const SELA_URL = 'http://new.sevenlight.id/api/lisensi-sela/cek';
-    const TOKEN_URL = 'http://new.sevenlight.id/api/login';
+    const TOKEN_URL = 'http://new.sevenlight.id/api/login'; // tes
 
     public function __construct()
     {
