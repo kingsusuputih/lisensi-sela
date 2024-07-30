@@ -11,8 +11,8 @@ class Sela
     private $sela_kode;
     private $bearer_token;
 
-    const SELA_URL = 'http://192.168.1.24:8000/api/lisensi-sela/cek';
-    const TOKEN_URL = 'http://192.168.1.24:8000/api/login';
+    const SELA_URL = 'http://new.sevenlight.id/api/lisensi-sela/cek';
+    const TOKEN_URL = 'http://new.sevenlight.id/api/login';
 
     public function __construct()
     {
