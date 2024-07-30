@@ -8,8 +8,11 @@
     }
   },
   "require": {
-    "php": "^8.2"
+    "php": "^8.2",
+    "kingsusuputih/lisensi-sela": "dev-main"
   },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
   "extra": {
     "laravel": {
       "providers": [
