@@ -1,6 +1,6 @@
 <?php
 
-namespace Vendor\Kingsusuputih\lisensi;
+namespace Kingsusuputih\LisensiSela;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;

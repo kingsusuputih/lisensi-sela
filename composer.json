@@ -1,19 +1,19 @@
 {
-  "name": "vendor/kingsusuputih/lisensi-sela",
+  "name": "kingsusuputih/lisensi-sela",
   "description": "Lisensi SELACMS",
   "type": "library",
   "autoload": {
     "psr-4": {
-      "Vendor\\lisensi-sela\\": "src/"
+      "kingsusuputih\\LisensiSela\\": "src/"
     }
   },
   "require": {
-    "php": "^7.3|^8.0"
+    "php": "^8.2"
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Vendor\\lisensi-sela\\MyPackageServiceProvider"
+        "kingsusuputih\\LisensiSela\\Sela"
       ]
     }
   }
