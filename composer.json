@@ -7,12 +7,10 @@
       "kingsusuputih\\LisensiSela\\": "src/"
     }
   },
+  "minimum-stability": "dev",
   "require": {
-    "php": "^8.2",
-    "kingsusuputih/lisensi-sela": "dev-main"
+    "php": "^8.2"
   },
-  "minimum-stability": "stable",
-  "prefer-stable": true,
   "extra": {
     "laravel": {
       "providers": [
