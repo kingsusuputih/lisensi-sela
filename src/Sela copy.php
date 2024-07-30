@@ -1,6 +1,6 @@
 <?php
 
-namespace Vendor\Kingsusuputih\lisensi;
+namespace Kingsusuputih\LisensiSela;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
@@ -11,8 +11,8 @@ class Sela
     private $sela_kode;
     private $bearer_token;
 
-    const SELA_URL = 'http://192.168.1.24:8000/api/lisensi-sela/cek';
-    const TOKEN_URL = 'http://192.168.1.24:8000/api/login';
+    const SELA_URL = 'http://new.sevenlight.id/api/lisensi-sela/cek';
+    const TOKEN_URL = 'http://new.sevenlight.id/api/login';
 
     public function __construct()
     {
@@ -33,8 +33,13 @@ class Sela
 
     private function getSelaDomain()
     {
-        $host = $_SERVER['HTTP_HOST'];
-        return (substr($host, 0, 4) === "www.") ? substr($host, 4) : $host;
+        if (isset($_SERVER['HTTP_HOST'])) {
+            $host = $_SERVER['HTTP_HOST'];
+            return (substr($host, 0, 4) === "www.") ? substr($host, 4) : $host;
+        }
+
+        // Gunakan environment variable atau konfigurasi jika HTTP_HOST tidak tersedia
+        return env('SELA_DOMAIN', 'localhost');
     }
 
     private function getBearerToken()
