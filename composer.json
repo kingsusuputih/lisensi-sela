@@ -14,7 +14,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "kingsusuputih\\LisensiSela\\Sela"
+        "kingsusuputih\\LisensiSela\\SelaServiceProvider"
       ]
     }
   },
