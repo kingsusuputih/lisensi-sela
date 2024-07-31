@@ -5,7 +5,7 @@ namespace Kingsusuputih\LisensiSela;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
 
-class Sela
+class SelaLisensi
 {
     private $sela_domain;
     private $sela_kode;
