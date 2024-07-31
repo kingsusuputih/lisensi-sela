@@ -8,13 +8,13 @@
   },
   "autoload": {
     "psr-4": {
-      "kingsusuputih\\LisensiSela\\": "src/"
+      "Kingsusuputih\\LisensiSela\\": "src/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "kingsusuputih\\LisensiSela\\SelaLisensiServiceProvider"
+        "Kingsusuputih\\LisensiSela\\SelaLisensiServiceProvider"
       ]
     }
   }
