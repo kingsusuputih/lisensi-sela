@@ -17,6 +17,5 @@ class SelaLisensiServiceProvider extends ServiceProvider
     public function boot()
     {
         // Inisialisasi SelaLisensi saat boot
-        $this->app->make(SelaLisensi::class);
     }
 }
