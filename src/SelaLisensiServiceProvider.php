@@ -17,6 +17,8 @@ class SelaLisensiServiceProvider extends ServiceProvider
             __DIR__ . '/config/view.php',
             'view'
         );
+
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'LisensiSela');
     }
 
     public function boot()
