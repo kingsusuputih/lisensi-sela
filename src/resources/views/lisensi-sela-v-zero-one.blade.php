@@ -49,22 +49,17 @@
           <div class="col-xl-7 col-lg-8">
 
             <div class="text-center">
-
-              {{-- <img src="{{ url('assets/defaults/gambar/lisensi.png') }}" alt="" class="w-100 object-fit-contain" style="height: 50vh;"> --}}
-
               <h3 class="text-uppercase fw-bold text-dark">{{ $pesan }}</h3>
               <p class="text-dark mb-0">
-                {{-- Maaf, kamu tidak memiliki akses ke halaman <b class="text-dark">{{ url()->current() }}</b> <br> --}}
                 Silahkan hubungi <a href="https://sevenlight.id">Sevenlight.ID</a> untuk info lebih lanjut.
               </p>
             </div>
+
           </div>
-
         </div>
-      </div>
 
+      </div>
     </div>
-  </div>
 
   </div>
 
