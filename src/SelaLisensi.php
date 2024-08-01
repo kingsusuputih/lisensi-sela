@@ -100,6 +100,7 @@ class SelaLisensi
 
     private function renderError($message)
     {
-        return view('LisensiSela::lisensi-sela', ['pesan' => $message]);
+        echo view('LisensiSela::lisensi-sela-' . config('sela-lisensi.version'), ['pesan' => $message]);
+        die;
     }
 }

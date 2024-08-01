@@ -14,7 +14,7 @@ class SelaLisensiServiceProvider extends ServiceProvider
         });
 
         $this->mergeConfigFrom(
-            __DIR__ . '/config/view.php',
+            __DIR__ . '/config/sela-lisensi.php',
             'view'
         );
 
@@ -23,9 +23,14 @@ class SelaLisensiServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        // Inisialisasi SelaLisensi saat boot
+        // Publikasikan konfigurasi
         $this->publishes([
-            __DIR__ . '/config/view.php' => config_path('view.php'),
+            __DIR__ . '/config/sela-lisensi.php' => config_path('sela-lisensi.php'),
         ], 'config');
+
+        // Publikasikan aset gambar
+        $this->publishes([
+            __DIR__ . '/assets/lisensi.png' => public_path('assets/defaults/gambar/lisensi.png'),
+        ], 'assets');
     }
 }
