@@ -34,13 +34,17 @@
       background-position: top;
       background-repeat: no-repeat;
     }
+
+    .opacity-custom {
+      opacity: {{ config('sela-lisensi.opacity') }};
+    }
   </style>
 
 </head>
 
 <body>
 
-  <div class="auth-page-wrapper d-flex justify-content-center align-items-end vh-100 bg-white py-5 opacity-75">
+  <div class="auth-page-wrapper d-flex justify-content-center align-items-end vh-100 opacity-custom bg-white py-5">
 
     <div class="auth-page-content overflow-hidden p-0">
       <div class="container">

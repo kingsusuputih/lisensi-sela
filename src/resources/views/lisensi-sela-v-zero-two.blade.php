@@ -32,7 +32,7 @@
     }
 
     .opacity-custom {
-      opacity: .80;
+      opacity: {{ config('sela-lisensi.opacity') }};
     }
   </style>
 
