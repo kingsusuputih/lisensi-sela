@@ -44,11 +44,49 @@ class SelaLisensi
 
     private function getBearerToken()
     {
+        return $this->getBearerTokenByCurl();
+    }
+
+    private function getBearerTokenByCurl()
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => self::TOKEN_URL,
+            // CURLOPT_SSL_VERIFYPEER => false,  // Disable SSL verification (gak disarankan di production)
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => http_build_query([
+                'email' => 'api@sevenlight.id',
+                'password' => '@Sevel2024',
+            ]),
+            CURLOPT_HTTPHEADER => array(
+                'Accept: application/json',
+                'Content-Type: application/x-www-form-urlencoded',
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        if (curl_errno($curl)) {
+            Log::error('cURL error: ' . curl_error($curl));
+            curl_close($curl);
+            return null;
+        }
+
+        curl_close($curl);
+
+        $data = json_decode($response, true);
+        return $data['access_token'] ?? null;
+    }
+
+    private function getBearerTokenByGuzzle()
+    {
         $client = app(Client::class);
 
         try {
             $response = $client->post(self::TOKEN_URL, [
-                'json' => [
+                'form_params' => [
                     'email' => 'api@sevenlight.id',
                     'password' => '@Sevel2024',
                 ],
@@ -56,7 +94,7 @@ class SelaLisensi
                     'Accept' => 'application/json',
                     'Content-Type' => 'application/json',
                 ],
-                'verify' => true,
+                'verify' => false,
             ]);
 
             $data = json_decode($response->getBody()->getContents(), true);
@@ -69,6 +107,48 @@ class SelaLisensi
     }
 
     private function autoCheck()
+    {
+        return $this->autoCheckByCurl();
+    }
+
+    private function autoCheckByCurl()
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => self::SELA_URL,
+            // CURLOPT_SSL_VERIFYPEER => false,  // Disable SSL verification (gak disarankan di production)
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => json_encode([
+                'domain' => $this->sela_domain,
+                'kode' => $this->sela_kode,
+            ]),
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer ' . $this->bearer_token,
+                'Accept: application/json',
+                'Content-Type: application/json',
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        if (curl_errno($curl)) {
+            Log::error('cURL error: ' . curl_error($curl));
+            curl_close($curl);
+            return $this->renderError('Sela CMS License Check Failed');
+        }
+
+        curl_close($curl);
+
+        $data = json_decode($response, true);
+
+        if (isset($data['status']) && $data['status'] == 'error') {
+            return $this->renderError($data['pesan']);
+        }
+    }
+
+    private function autoCheckByGuzzle()
     {
         $client = app(Client::class);
         $params = [
