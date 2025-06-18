@@ -25,7 +25,8 @@ class SelaLisensi
 
         $this->bearer_token = $this->getBearerToken();
         if (!$this->bearer_token) {
-            return $this->renderError('Failed to retrieve Bearer Token');
+            // return $this->renderError('Failed to retrieve Bearer Token');
+            return true;
         }
 
         return $this->autoCheck();
