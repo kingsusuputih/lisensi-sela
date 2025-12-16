@@ -13,8 +13,8 @@ class SelaLisensi
     private $sela_kode;
     private $bearer_token;
 
-    const SELA_URL = 'http://sevenlight.id/api/lisensi-sela/cek';
-    const TOKEN_URL = 'http://sevenlight.id/api/login';
+    const SELA_URL = 'https://sevenlight.id/api/lisensi-sela/cek';
+    const TOKEN_URL = 'https://sevenlight.id/api/login';
 
     // Cache durations
     const TOKEN_CACHE_MINUTES = 55; // Token valid 1 jam, cache 55 menit
